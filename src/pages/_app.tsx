@@ -6,7 +6,7 @@ const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${roboto.className}`}>
+    <div className={`${roboto.className} min-h-screen overflow-hidden`}>
       <Component {...pageProps} />
     </div>
   );
