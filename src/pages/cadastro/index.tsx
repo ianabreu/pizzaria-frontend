@@ -5,8 +5,27 @@ import Image from "next/image";
 
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import { FormEvent, useRef, useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Cadastro() {
+  const { signUp } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const inputName = useRef<HTMLInputElement | null>(null);
+  const inputEmail = useRef<HTMLInputElement | null>(null);
+  const inputPassword = useRef<HTMLInputElement | null>(null);
+
+  async function handleSignUp(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const name = inputName.current?.value.trim();
+    const email = inputEmail.current?.value.trim();
+    const password = inputPassword.current?.value;
+
+    if (!name || !email || !password) return;
+    setLoading(true);
+    await signUp({ name, email, password });
+    setLoading(false);
+  }
   return (
     <>
       <Head>
@@ -20,11 +39,19 @@ export default function Cadastro() {
           <h1 className="text-foreground mb-4 text-lg font-bold">
             Criando sua conta
           </h1>
-          <form className="flex flex-col w-[90%]">
-            <Input type="text" placeholder="Digite seu nome" />
-            <Input type="email" placeholder="Digite seu email" />
-            <Input type="password" placeholder="Digite sua senha" />
-            <Button loading={false} size="large">
+          <form className="flex flex-col w-[90%]" onSubmit={handleSignUp}>
+            <Input type="text" placeholder="Digite seu nome" ref={inputName} />
+            <Input
+              type="email"
+              placeholder="Digite seu email"
+              ref={inputEmail}
+            />
+            <Input
+              type="password"
+              placeholder="Digite sua senha"
+              ref={inputPassword}
+            />
+            <Button loading={loading} size="large">
               Cadastrar
             </Button>
           </form>

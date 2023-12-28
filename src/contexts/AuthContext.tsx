@@ -8,6 +8,7 @@ type AuthContextData = {
   user: UserProps | undefined;
   isAuthenticated: boolean;
   signIn: (credentials: SignInProps) => Promise<void>;
+  signUp: (credentials: SignUpProps) => Promise<void>;
   signOut: () => void;
 };
 type UserProps = {
@@ -16,6 +17,11 @@ type UserProps = {
   email: string;
 };
 type SignInProps = {
+  email: string;
+  password: string;
+};
+type SignUpProps = {
+  name: string;
   email: string;
   password: string;
 };
@@ -61,13 +67,23 @@ export function AuthProvider({ children }: AuthProviderProps) {
       destroyCookie(undefined, "@pizzaria.token");
     }
   }
-
+  async function signUp({ name, email, password }: SignUpProps) {
+    try {
+      const response = await api.post("/users", { name, email, password });
+      console.log("cadastrado com sucesso");
+      console.log(response.data);
+      Router.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated,
         user,
         signIn,
+        signUp,
         signOut,
       }}
     >
