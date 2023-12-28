@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { useAuth } from "@/contexts/AuthContext";
+import toast from "react-hot-toast";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -19,7 +20,10 @@ export default function Home() {
     const email = inputEmail.current?.value;
     const password = inputPassword.current?.value;
 
-    if (!email || !password) return;
+    if (!email || !password) {
+      toast.error("Preencha todos os campos!");
+      return;
+    }
     setLoading(true);
     await signIn({ email, password });
     setLoading(false);

@@ -3,6 +3,7 @@ import { destroyCookie, setCookie } from "nookies";
 import Router from "next/router";
 import { api } from "@/services/apiClient";
 import { AxiosError } from "axios";
+import toast from "react-hot-toast";
 
 type AuthContextData = {
   user: UserProps | undefined;
@@ -44,7 +45,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function signIn({ email, password }: SignInProps) {
     try {
       const response = await api.post("/session", { email, password });
-      const { id, name, token } = response.data;
+      const { id, name, token } = response.data as {
+        id: string;
+        name: string;
+        token: string;
+      };
       setCookie(undefined, "@pizzaria.token", token, {
         maxAge: 60 * 60 * 24 * 30,
         path: "/",
@@ -57,23 +62,32 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       api.defaults.headers["Authorization"] = `Bearer ${token}`;
 
+      toast.success("Login efetuado com sucesso!");
+
       Router.push("/admin");
     } catch (error) {
+      destroyCookie(undefined, "@pizzaria.token");
       if (error instanceof AxiosError) {
-        console.log(error.response?.data.error);
+        if (error.response?.data.error === "user/password incorrect") {
+          toast.error("Email ou senha incorretos.");
+          return;
+        } else {
+          toast.error("Erro ao fazer login.");
+          return;
+        }
       } else {
         console.log(error);
+        toast.error("Erro ao acessar.");
       }
-      destroyCookie(undefined, "@pizzaria.token");
     }
   }
   async function signUp({ name, email, password }: SignUpProps) {
     try {
       const response = await api.post("/users", { name, email, password });
-      console.log("cadastrado com sucesso");
-      console.log(response.data);
+      toast.success("Cadastro efetuado com sucesso!");
       Router.push("/");
     } catch (error) {
+      toast.error("Erro ao cadastrar.");
       console.log(error);
     }
   }

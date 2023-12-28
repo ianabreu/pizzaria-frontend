@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { FormEvent, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import toast from "react-hot-toast";
 
 export default function Cadastro() {
   const { signUp } = useAuth();
@@ -21,7 +22,11 @@ export default function Cadastro() {
     const email = inputEmail.current?.value.trim();
     const password = inputPassword.current?.value;
 
-    if (!name || !email || !password) return;
+    if (!name || !email || !password) {
+      toast.error("Preencha todos os campos!");
+
+      return;
+    }
     setLoading(true);
     await signUp({ name, email, password });
     setLoading(false);
