@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { destroyCookie } from "nookies";
+import { destroyCookie, setCookie } from "nookies";
 import Router from "next/router";
+import { api } from "@/services/apiClient";
+import { AxiosError } from "axios";
 
 type AuthContextData = {
   user: UserProps | undefined;
@@ -34,8 +36,30 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>();
   const isAuthenticated = !!user;
   async function signIn({ email, password }: SignInProps) {
-    console.log(email);
-    console.log(password);
+    try {
+      const response = await api.post("/session", { email, password });
+      const { id, name, token } = response.data;
+      setCookie(undefined, "@pizzaria.token", token, {
+        maxAge: 60 * 60 * 24 * 30,
+        path: "/",
+      });
+      setUser({
+        id,
+        name,
+        email,
+      });
+
+      api.defaults.headers["Authorization"] = `Bearer ${token}`;
+
+      Router.push("/admin");
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        console.log(error.response?.data.error);
+      } else {
+        console.log(error);
+      }
+      destroyCookie(undefined, "@pizzaria.token");
+    }
   }
 
   return (
