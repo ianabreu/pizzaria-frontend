@@ -1,10 +1,5 @@
 import Head from "next/head";
-import Link from "next/link";
-import logoImg from "@/../public/logo.svg";
-import Image from "next/image";
-
-import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
+import { canSSRAuth } from "@/utils/canSSRAuth";
 
 export default function Admin() {
   return (
@@ -18,3 +13,9 @@ export default function Admin() {
     </>
   );
 }
+
+export const getServerSideProps = canSSRAuth(async (context) => {
+  return {
+    props: {},
+  };
+});
