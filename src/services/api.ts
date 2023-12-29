@@ -6,9 +6,9 @@ import { signOut } from "@/contexts/AuthContext";
 export function setupAPIClient(ctx = undefined) {
   let cookies = parseCookies(ctx);
   const api = axios.create({
-    baseURL: "https://api-pedefacil.onrender.com",
+    baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     headers: {
-      Authorization: `Bearer ${cookies["@pizzaria.token"]}`,
+      Authorization: `Bearer ${cookies[process.env.NEXT_PUBLIC_TOKEN_COOKIE]}`,
     },
   });
   api.interceptors.response.use(

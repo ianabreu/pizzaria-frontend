@@ -1,13 +1,13 @@
+import { FormEvent, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import logoImg from "@/../public/logo.svg";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
+import logoImg from "@/../public/logo.svg";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
-import { FormEvent, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import toast from "react-hot-toast";
 import { canSSRGuest } from "@/utils/canSSRGuest";
 
 export default function Cadastro() {

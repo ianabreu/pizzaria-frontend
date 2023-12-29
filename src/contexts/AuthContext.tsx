@@ -1,9 +1,10 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { destroyCookie, setCookie } from "nookies";
 import Router from "next/router";
-import { api } from "@/services/apiClient";
 import { AxiosError } from "axios";
+import { destroyCookie, setCookie } from "nookies";
 import toast from "react-hot-toast";
+
+import { api } from "@/services/apiClient";
 
 type AuthContextData = {
   user: UserProps | undefined;
@@ -33,7 +34,7 @@ const AuthContext = createContext({} as AuthContextData);
 
 export function signOut() {
   try {
-    destroyCookie(undefined, "@pizzaria.token");
+    destroyCookie(undefined, process.env.NEXT_PUBLIC_TOKEN_COOKIE);
     Router.push("/");
   } catch (error) {
     console.log("erro ao deslogar");
@@ -50,7 +51,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         name: string;
         token: string;
       };
-      setCookie(undefined, "@pizzaria.token", token, {
+      setCookie(undefined, process.env.NEXT_PUBLIC_TOKEN_COOKIE, token, {
         maxAge: 60 * 60 * 24 * 30,
         path: "/",
       });
@@ -66,7 +67,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       Router.push("/admin");
     } catch (error) {
-      destroyCookie(undefined, "@pizzaria.token");
+      destroyCookie(undefined, process.env.NEXT_PUBLIC_TOKEN_COOKIE);
       if (error instanceof AxiosError) {
         if (error.response?.data.error === "user/password incorrect") {
           toast.error("Email ou senha incorretos.");

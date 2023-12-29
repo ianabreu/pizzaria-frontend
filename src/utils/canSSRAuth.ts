@@ -1,10 +1,11 @@
-import { AuthTokenError } from "@/services/errors/AuthTokenError";
 import {
   GetServerSideProps,
   GetServerSidePropsContext,
   GetServerSidePropsResult,
 } from "next";
 import { parseCookies, destroyCookie } from "nookies";
+
+import { AuthTokenError } from "@/services/errors/AuthTokenError";
 
 export function canSSRAuth<P extends { [key: string]: any }>(
   fn: GetServerSideProps<P>
@@ -13,7 +14,7 @@ export function canSSRAuth<P extends { [key: string]: any }>(
     context: GetServerSidePropsContext
   ): Promise<GetServerSidePropsResult<P>> => {
     const cookies = parseCookies(context);
-    const token = cookies["@pizzaria.token"];
+    const token = cookies[process.env.NEXT_PUBLIC_TOKEN_COOKIE];
 
     if (!token) {
       return {
@@ -28,7 +29,7 @@ export function canSSRAuth<P extends { [key: string]: any }>(
       return await fn(context);
     } catch (error) {
       if (error instanceof AuthTokenError) {
-        destroyCookie(context, "@pizzaria.token");
+        destroyCookie(context, process.env.NEXT_PUBLIC_TOKEN_COOKIE);
         return {
           redirect: {
             destination: "/",

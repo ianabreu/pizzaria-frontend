@@ -12,7 +12,7 @@ export function canSSRGuest<P extends { [key: string]: any }>(
     context: GetServerSidePropsContext
   ): Promise<GetServerSidePropsResult<P>> => {
     const cookies = parseCookies(context);
-    if (cookies["@pizzaria.token"]) {
+    if (cookies[process.env.NEXT_PUBLIC_TOKEN_COOKIE]) {
       return {
         redirect: {
           destination: "/admin",
