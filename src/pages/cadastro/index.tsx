@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { FormEvent, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import toast from "react-hot-toast";
+import { canSSRGuest } from "@/utils/canSSRGuest";
 
 export default function Cadastro() {
   const { signUp } = useAuth();
@@ -68,3 +69,9 @@ export default function Cadastro() {
     </>
   );
 }
+
+export const getServerSideProps = canSSRGuest(async (context) => {
+  return {
+    props: {},
+  };
+});

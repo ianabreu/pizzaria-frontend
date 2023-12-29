@@ -3,11 +3,13 @@ import Head from "next/head";
 import Link from "next/link";
 import logoImg from "@/../public/logo.svg";
 import Image from "next/image";
+import { GetServerSideProps } from "next";
 
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { useAuth } from "@/contexts/AuthContext";
 import toast from "react-hot-toast";
+import { canSSRGuest } from "@/utils/canSSRGuest";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -66,3 +68,9 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps = canSSRGuest(async (context) => {
+  return {
+    props: {},
+  };
+});
