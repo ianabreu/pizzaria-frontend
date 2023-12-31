@@ -1,15 +1,19 @@
-import Head from "next/head";
+import { Header } from "@/components/layout/Header";
 import { canSSRAuth } from "@/utils/canSSRAuth";
+import Head from "next/head";
+import Modal from "react-modal";
 
 export default function Admin() {
+  Modal.setAppElement("#__next");
+
   return (
     <>
       <Head>
-        <title>Abreu Pizza - Admin</title>
+        <title>Painel - Abreu Pizza</title>
       </Head>
-      <main
-        className={`flex h-screen flex-col items-center justify-center p-6`}
-      ></main>
+      <main className={`flex `}>
+        <Header />
+      </main>
     </>
   );
 }
