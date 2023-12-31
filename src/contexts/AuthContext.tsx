@@ -1,7 +1,13 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 import Router from "next/router";
 import { AxiosError } from "axios";
-import { destroyCookie, setCookie } from "nookies";
+import { destroyCookie, parseCookies, setCookie } from "nookies";
 import toast from "react-hot-toast";
 
 import { api } from "@/services/apiClient";
@@ -43,6 +49,22 @@ export function signOut() {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>();
   const isAuthenticated = !!user;
+
+  useEffect(() => {
+    const cookies = parseCookies();
+    if (cookies[process.env.NEXT_PUBLIC_TOKEN_COOKIE]) {
+      api
+        .get("/me")
+        .then((response) => {
+          const { id, name, email } = response.data;
+          setUser({ id, email, name });
+        })
+        .catch(() => {
+          signOut();
+        });
+    }
+  }, []);
+
   async function signIn({ email, password }: SignInProps) {
     try {
       const response = await api.post("/session", { email, password });
