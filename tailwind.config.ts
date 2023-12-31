@@ -23,6 +23,7 @@ const config: Config = {
         primary: "var(--red-900)",
         secondary: "var(--green-900)",
         terciary: "var(--blue-900)",
+        cancel: "var(--gray-300)",
       },
     },
   },
