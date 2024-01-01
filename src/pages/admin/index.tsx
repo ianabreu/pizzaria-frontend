@@ -11,9 +11,10 @@ export default function Admin() {
       <Head>
         <title>Painel - Abreu Pizza</title>
       </Head>
-      <main className={`flex `}>
+      <>
         <Header />
-      </main>
+        <main className={`flex `}></main>
+      </>
     </>
   );
 }

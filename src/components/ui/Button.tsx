@@ -2,16 +2,17 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
   size?: "default" | "large";
-  variant?: "primary" | "cancel";
+  variant?: keyof typeof colorStyles;
 }
 import { FaSpinner } from "react-icons/fa";
 
-const defaultStyles = `max-w-screen-sm w-full p-[0.4rem] rounded-lg transition-all duration-200`;
+const defaultStyles = `w-full p-[0.4rem] rounded-lg transition-all duration-200 font-bold`;
 const hoverStyles = `hover:filter hover:brightness-110 `;
 const colorStyles = {
   primary: `bg-primary text-foreground`,
+  secondary: `bg-secondary text-background`,
   cancel: `bg-transparent text-cancel `,
 };
 
