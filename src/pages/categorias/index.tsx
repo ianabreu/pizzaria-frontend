@@ -1,6 +1,8 @@
+import { Container } from "@/components/layout/Container";
 import { Header } from "@/components/layout/Header";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { Title } from "@/components/ui/title";
 import { api } from "@/services/apiClient";
 import { canSSRAuth } from "@/utils/canSSRAuth";
 import { AxiosError } from "axios";
@@ -48,10 +50,8 @@ export default function CategoryPage() {
       </Head>
       <>
         <Header />
-        <main
-          className={`flex max-w-screen-md my-16 mx-auto flex-col px-4 justify-between`}
-        >
-          <h1 className="font-bold text-xl">Cadastrar categorias</h1>
+        <Container>
+          <Title>Nova categoria</Title>
           <form className="flex flex-col my-4" onSubmit={handleRegister}>
             <Input
               type="text"
@@ -67,7 +67,7 @@ export default function CategoryPage() {
               Cadastrar
             </Button>
           </form>
-        </main>
+        </Container>{" "}
       </>
     </>
   );
