@@ -8,14 +8,14 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const { signOut } = useAuth();
   return (
-    <header className={`h-20 w-full`}>
-      <div className="h-full max-w-6xl mx-auto my-0 flex items-center justify-between py-8">
+    <header className={`sm:h-20 w-full`}>
+      <div className="h-full max-w-6xl mx-auto my-0 px-4 flex sm:flex-row flex-col items-center justify-between py-8">
         <Link href={"/admin"}>
           <img src="/logo.svg" alt="Logo" height={60} width={190} />
         </Link>
         <nav className="flex items-center gap-4">
-          <NavLink href={"/categoria"}>Categoria</NavLink>
-          <NavLink href={"/produto"}>Produto</NavLink>
+          <NavLink href={"/categorias"}>Categorias</NavLink>
+          <NavLink href={"/produtos"}>Produtos</NavLink>
           <button
             className="px-4 py-2 hover:scale-125 transition"
             onClick={() => {
