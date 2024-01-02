@@ -2,13 +2,13 @@ import { FormEvent, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 
 import logoImg from "@/../public/logo.svg";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { useAuth } from "@/contexts/AuthContext";
 import { canSSRGuest } from "@/utils/canSSRGuest";
+import { Logo } from "@/components/ui/logo";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,8 @@ export default function Home() {
       <main
         className={`flex h-screen flex-col items-center justify-center p-6`}
       >
-        <Image src={logoImg} alt="Logo" />
+        <Logo src={logoImg} alt="Logo" className="w-[400px] h-auto" />
+
         <div className="w-full max-w-screen-sm mt-8 flex flex-col items-center my-8">
           <form className="flex flex-col w-[90%]" onSubmit={handleSignIn}>
             <Input

@@ -1,7 +1,6 @@
 import { FormEvent, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import toast from "react-hot-toast";
 
 import logoImg from "@/../public/logo.svg";
@@ -9,6 +8,7 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { useAuth } from "@/contexts/AuthContext";
 import { canSSRGuest } from "@/utils/canSSRGuest";
+import { Logo } from "@/components/ui/logo";
 
 export default function Cadastro() {
   const { signUp } = useAuth();
@@ -40,7 +40,7 @@ export default function Cadastro() {
       <main
         className={`flex h-screen flex-col items-center justify-center p-6`}
       >
-        <Image src={logoImg} alt="Logo" />
+        <Logo src={logoImg} alt="Logo" className="w-[400px] h-auto" />
         <div className="w-full max-w-screen-sm mt-8 flex flex-col items-center my-8">
           <h1 className="text-foreground mb-4 text-lg font-bold">
             Criando sua conta
