@@ -1,17 +1,16 @@
-import { Container } from "@/components/layout/Container";
-import { Header } from "@/components/layout/Header";
-import { Button } from "@/components/ui/Button";
-import { Input, TextArea } from "@/components/ui/Input";
-import { Title } from "@/components/ui/title";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import toast from "react-hot-toast";
+
+import { Container, Header } from "@/components/layout";
+import { Button, Input, TextArea, Title } from "@/components/ui";
+import { Icons } from "@/constants/Icons";
+
 import { setupAPIClient } from "@/services/api";
 import { api } from "@/services/apiClient";
 import { canSSRAuth } from "@/utils/canSSRAuth";
 import { AxiosError } from "axios";
-import Head from "next/head";
-import Image from "next/image";
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
-import toast from "react-hot-toast";
-import { FiUpload } from "react-icons/fi";
 
 type Category = {
   id: string;
@@ -126,7 +125,7 @@ export default function ProductPage({ categories }: ProductPageProps) {
               onChange={handleFile}
             />
             <span className="z-50 absolute opacity-70 transition-all duration-300 hover:opacity-100 hover:scale-125">
-              <FiUpload size={30} />
+              {Icons["upload"]}
             </span>
             {avatarURL && (
               <Image

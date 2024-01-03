@@ -1,6 +1,6 @@
 import Modal, { Styles } from "react-modal";
-import { FiAlertCircle } from "react-icons/fi";
-import { Button } from "./Button";
+import { Icons } from "@/constants/Icons";
+import { Button } from "@/components/ui";
 
 const customStyles: Styles = {
   content: {
@@ -47,9 +47,7 @@ export function Dialog(
       onRequestClose={handleCloseModal}
     >
       <div className="text-background flex flex-col items-center justify-between gap-4 m-0">
-        <span className="text-primary text-8xl ">
-          <FiAlertCircle />
-        </span>
+        <span className="text-primary text-8xl ">{Icons["alert"]}</span>
         <h6 className="font-bold text-3xl">{title}</h6>
         <p className="text-base">{message}</p>
         <div className="flex w-full justify-around">

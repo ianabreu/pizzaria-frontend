@@ -1,14 +1,13 @@
-import { Container } from "@/components/layout/Container";
-import { Header } from "@/components/layout/Header";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Title } from "@/components/ui/title";
+import { FormEvent, useRef, useState } from "react";
+import Head from "next/head";
+import toast from "react-hot-toast";
+import { AxiosError } from "axios";
+
+import { Container, Header } from "@/components/layout";
+import { Button, Input, Title } from "@/components/ui";
+
 import { api } from "@/services/apiClient";
 import { canSSRAuth } from "@/utils/canSSRAuth";
-import { AxiosError } from "axios";
-import Head from "next/head";
-import { FormEvent, useRef, useState } from "react";
-import toast from "react-hot-toast";
 
 export default function CategoryPage() {
   const inputCategory = useRef<HTMLInputElement | null>(null);

@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { FiLogOut } from "react-icons/fi";
-import { NavLink } from "@/components/ui/header-link";
-import { useAuth } from "@/contexts/AuthContext";
-import { Dialog } from "../ui/alert-modal";
 import { useState } from "react";
-import { Logo } from "../ui/logo";
+import Link from "next/link";
+
+import { Icons } from "@/constants/Icons";
+import { NavLink, Dialog, Logo } from "@/components/ui";
+
+import { useAuth } from "@/contexts/AuthContext";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -24,7 +24,7 @@ export function Header() {
               setOpen(true);
             }}
           >
-            <FiLogOut />
+            {Icons["logout"]}
           </button>
         </nav>
         {Dialog(

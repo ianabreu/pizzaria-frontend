@@ -1,7 +1,9 @@
-import { Header } from "@/components/layout/Header";
-import { canSSRAuth } from "@/utils/canSSRAuth";
 import Head from "next/head";
 import Modal from "react-modal";
+import { Header, Container } from "@/components/layout";
+import { Icons } from "@/constants/Icons";
+import { Title } from "@/components/ui";
+import { canSSRAuth } from "@/utils/canSSRAuth";
 
 export default function Admin() {
   Modal.setAppElement("#__next");
@@ -13,7 +15,10 @@ export default function Admin() {
       </Head>
       <>
         <Header />
-        <main className={`flex `}></main>
+        <Container>
+          <Title>Pedidos</Title>
+          <button type="button">{Icons["refresh"]}</button>
+        </Container>
       </>
     </>
   );

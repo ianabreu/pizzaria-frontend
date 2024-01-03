@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
+import { Icons } from "@/constants/Icons";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
@@ -6,7 +7,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "default" | "large";
   variant?: keyof typeof colorStyles;
 }
-import { FaSpinner } from "react-icons/fa";
 
 const defaultStyles = `w-full p-[0.4rem] rounded-lg transition-all duration-200 font-bold`;
 const hoverStyles = `hover:filter hover:brightness-110 `;
@@ -31,9 +31,7 @@ export function Button({
       } ${size === "large" ? "h-10 text-lg" : ""} `}
       {...rest}
     >
-      <a>
-        {loading ? <FaSpinner className="animate-spin m-auto" /> : children}
-      </a>
+      <a>{loading ? <span>{Icons["loading"]}</span> : children}</a>
     </button>
   );
 }
