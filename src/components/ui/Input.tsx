@@ -5,16 +5,27 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
 const defaultStyles =
-  "mb-4 rounded-lg bg-input text-foreground p-4 border-[1px] placeholder:text-opacity-80";
+  "mb-4 rounded-md bg-input text-foreground border-[1px] placeholder:text-opacity-80";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ ...rest }, ref) => {
-    return <input className={`${defaultStyles} h-10`} {...rest} ref={ref} />;
+    return (
+      <input className={`${defaultStyles} p-4 h-10`} {...rest} ref={ref} />
+    );
   }
 );
 
-export function TextArea({ ...rest }: TextAreaProps) {
-  return <textarea className={`${defaultStyles}`} {...rest} />;
-}
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  ({ ...rest }, ref) => {
+    return (
+      <textarea
+        className={`${defaultStyles} py-2 px-4 h-28 resize-none`}
+        {...rest}
+        ref={ref}
+      />
+    );
+  }
+);
 
 Input.displayName = "Input";
+TextArea.displayName = "TextArea";
