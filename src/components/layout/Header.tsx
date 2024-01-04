@@ -12,7 +12,7 @@ export function Header() {
   return (
     <header className={`sm:h-20 w-full`}>
       <div className="h-full max-w-6xl mx-auto my-0 px-4 flex sm:flex-row flex-col items-center justify-between py-8">
-        <Link href={"/admin"}>
+        <Link href={"/painel"}>
           <Logo src={"/logo.svg"} alt="Logo" className="w-[190px] h-auto" />
         </Link>
         <nav className="flex items-center gap-4">

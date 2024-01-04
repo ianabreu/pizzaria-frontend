@@ -87,7 +87,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       toast.success("Login efetuado com sucesso!");
 
-      Router.push("/admin");
+      Router.push("/painel");
     } catch (error) {
       destroyCookie(undefined, process.env.NEXT_PUBLIC_TOKEN_COOKIE);
       if (error instanceof AxiosError) {

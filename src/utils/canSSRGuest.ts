@@ -15,7 +15,7 @@ export function canSSRGuest<P extends { [key: string]: any }>(
     if (cookies[process.env.NEXT_PUBLIC_TOKEN_COOKIE]) {
       return {
         redirect: {
-          destination: "/admin",
+          destination: "/painel",
           permanent: false,
         },
       };
