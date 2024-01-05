@@ -4,6 +4,7 @@ import {
   FiLogOut,
   FiRefreshCcw,
   FiUpload,
+  FiX,
 } from "react-icons/fi";
 
 export const Icons = {
@@ -12,4 +13,5 @@ export const Icons = {
   refresh: <FiRefreshCcw />,
   loading: <FaSpinner className="animate-spin m-auto" />,
   upload: <FiUpload size={30} />,
+  close: <FiX />,
 };
