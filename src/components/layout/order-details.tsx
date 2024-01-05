@@ -7,12 +7,14 @@ interface OrderItemDetailsProps {
   isOpen: boolean;
   onRequestClose: () => void;
   order: OrderItemProps[];
+  handleFinishOrder: (order_id: string) => void;
 }
 
 export function OrderItemDetails({
   isOpen,
   onRequestClose,
   order,
+  handleFinishOrder,
 }: OrderItemDetailsProps) {
   const customStyles: Styles = {
     content: {
@@ -63,7 +65,14 @@ export function OrderItemDetails({
           </section>
         ))}
       </div>
-      <Button variant="secondary">Concluir pedido</Button>
+      <div className="max-w-xs">
+        <Button
+          variant="secondary"
+          onClick={() => handleFinishOrder(order[0].order_id)}
+        >
+          Concluir pedido
+        </Button>
+      </div>
     </Modal>
   );
 }

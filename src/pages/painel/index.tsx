@@ -36,6 +36,7 @@ export type OrderItemProps = {
 export default function PainelPage({ orders }: PainelProps) {
   Modal.setAppElement("#__next");
   const [modalItem, setModalItem] = useState<OrderItemProps[]>([]);
+  const [orderList, setOrderList] = useState<OrderProps[]>(orders);
   const [modalVisible, setModalVisible] = useState(false);
   function handleCloseModal() {
     setModalVisible(false);
@@ -47,6 +48,17 @@ export default function PainelPage({ orders }: PainelProps) {
     setModalItem(response.data);
     setModalVisible(true);
   }
+
+  async function handleFinishItem(order_id: string) {
+    api.put("/order/finish", { order_id });
+    const { data } = await api.get("/orders");
+    setOrderList(data);
+    setModalVisible(false);
+  }
+  async function handleRefreshOrders() {
+    const { data } = await api.get("/orders");
+    setOrderList(data);
+  }
   return (
     <>
       <Head>
@@ -57,12 +69,21 @@ export default function PainelPage({ orders }: PainelProps) {
       <Container>
         <div className="flex gap-4">
           <Title>Últimos pedidos</Title>
-          <button type="button" className="text-secondary text-lg">
+          <button
+            type="button"
+            className="text-secondary text-lg"
+            onClick={handleRefreshOrders}
+          >
             {Icons["refresh"]}
           </button>
         </div>
         <article className="flex flex-col gap-4 mt-4">
-          {orders.map((order) => (
+          {orderList.length === 0 && (
+            <div className="text-xl text-center opacity-75">
+              Nenhum pedido aberto encontrado!
+            </div>
+          )}
+          {orderList.map((order) => (
             <OrderItem
               key={order.id}
               order={order}
@@ -71,11 +92,13 @@ export default function PainelPage({ orders }: PainelProps) {
           ))}
         </article>
       </Container>
+
       {modalVisible && (
         <OrderItemDetails
           isOpen={modalVisible}
           onRequestClose={handleCloseModal}
           order={modalItem}
+          handleFinishOrder={handleFinishItem}
         />
       )}
     </>
