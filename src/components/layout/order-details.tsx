@@ -2,7 +2,7 @@ import Modal, { Styles } from "react-modal";
 import { OrderItemProps } from "../../pages/painel";
 import { Icons } from "../../constants/Icons";
 import { Title } from "../ui/title";
-import { UIButton } from "../ui/button";
+import { UIButton } from "@/components/ui/button";
 
 interface OrderItemDetailsProps {
   isOpen: boolean;
