@@ -5,7 +5,7 @@ import { AxiosError } from "axios";
 
 import { Container } from "../../components/layout/container";
 import { Header } from "../../components/layout/header";
-import { Button } from "../../components/ui/button";
+import { UIButton } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Title } from "../../components/ui/title";
 
@@ -60,16 +60,16 @@ export default function CategoryPage() {
               placeholder="Digite o nome da categoria"
               ref={inputCategory}
             />
-            <Button
+            <UIButton
               variant="secondary"
               size="large"
               type="submit"
               loading={loading}
             >
               Cadastrar
-            </Button>
+            </UIButton>
           </form>
-        </Container>{" "}
+        </Container>
       </>
     </>
   );

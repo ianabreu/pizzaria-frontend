@@ -6,7 +6,7 @@ import { AxiosError } from "axios";
 
 import { Container } from "../../components/layout/container";
 import { Header } from "../../components/layout/header";
-import { Button } from "../../components/ui/button";
+import { UIButton } from "../../components/ui/button";
 import { Input, TextArea } from "../../components/ui/input";
 import { Title } from "../../components/ui/title";
 import { Icons } from "../../constants/Icons";
@@ -172,14 +172,14 @@ export default function ProductPage({ categories }: ProductPageProps) {
             placeholder="Descreva seu produto..."
           />
 
-          <Button
+          <UIButton
             variant="secondary"
             size="large"
             type="submit"
             loading={loading}
           >
             Cadastrar
-          </Button>
+          </UIButton>
         </form>
       </Container>
     </>

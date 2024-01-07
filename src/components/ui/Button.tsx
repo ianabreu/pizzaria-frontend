@@ -16,7 +16,7 @@ const colorStyles = {
   cancel: `bg-transparent text-cancel `,
 };
 
-export function Button({
+export function UIButton({
   loading = false,
   size = "default",
   children,

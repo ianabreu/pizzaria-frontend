@@ -1,6 +1,6 @@
 import Modal, { Styles } from "react-modal";
 import { Icons } from "../../constants/Icons";
-import { Button } from "./button";
+import { UIButton } from "./button";
 
 const customStyles: Styles = {
   content: {
@@ -52,11 +52,11 @@ export function Dialog(
         <p className="text-base">{message}</p>
         <div className="flex w-full justify-around">
           {showCancelButton && (
-            <Button onClick={handleCloseModal} variant="cancel">
+            <UIButton onClick={handleCloseModal} variant="cancel">
               Cancelar
-            </Button>
+            </UIButton>
           )}
-          <Button onClick={onConfirm}>{confirmButtonText}</Button>
+          <UIButton onClick={onConfirm}>{confirmButtonText}</UIButton>
         </div>
       </div>
     </Modal>

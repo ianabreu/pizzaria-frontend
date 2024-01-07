@@ -2,7 +2,7 @@ import Modal, { Styles } from "react-modal";
 import { OrderItemProps } from "../../pages/painel";
 import { Icons } from "../../constants/Icons";
 import { Title } from "../ui/title";
-// import { Button } from "../ui/button";
+import { UIButton } from "../ui/button";
 
 interface OrderItemDetailsProps {
   isOpen: boolean;
@@ -67,12 +67,12 @@ export function OrderItemDetails({
         ))}
       </div>
       <div className="max-w-xs">
-        <button
-          // variant="secondary"
+        <UIButton
+          variant="secondary"
           onClick={() => handleFinishOrder(order[0].order_id)}
         >
           Concluir pedido
-        </button>
+        </UIButton>
       </div>
     </Modal>
   );

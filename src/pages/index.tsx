@@ -4,7 +4,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 
 import { Input } from "../components/ui/input";
-import { Button } from "../components/ui/button";
+import { UIButton } from "../components/ui/button";
 import { Logo } from "../components/ui/logo";
 
 import { useAuth } from "../contexts/AuthContext";
@@ -53,9 +53,9 @@ export default function Home() {
               placeholder="Digite sua senha"
               ref={inputPassword}
             />
-            <Button loading={loading} size="large">
+            <UIButton loading={loading} size="large">
               Acessar
-            </Button>
+            </UIButton>
           </form>
           <Link
             href={"/cadastro"}

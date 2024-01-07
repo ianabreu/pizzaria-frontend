@@ -4,7 +4,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 
 import { Input } from "../../components/ui/input";
-import { Button } from "../../components/ui/button";
+import { UIButton } from "../../components/ui/button";
 import { Logo } from "../../components/ui/logo";
 
 import { useAuth } from "../../contexts/AuthContext";
@@ -57,9 +57,9 @@ export default function Cadastro() {
               placeholder="Digite sua senha"
               ref={inputPassword}
             />
-            <Button loading={loading} size="large">
+            <UIButton loading={loading} size="large">
               Cadastrar
-            </Button>
+            </UIButton>
           </form>
           <Link href={"/"} className="mt-4 text-foreground cursor-pointer">
             Já possui uma conta? Faça login!
