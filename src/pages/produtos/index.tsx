@@ -2,15 +2,15 @@ import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import toast from "react-hot-toast";
-
-import { Container, Header } from "@/components/layout";
-import { Button, Input, TextArea, Title } from "@/components/ui";
-import { Icons } from "@/constants/Icons";
-
-import { setupAPIClient } from "@/services/api";
-import { api } from "@/services/apiClient";
-import { canSSRAuth } from "@/utils/canSSRAuth";
 import { AxiosError } from "axios";
+
+import { Container, Header } from "../../components/layout";
+import { Button, Input, TextArea, Title } from "../../components/ui";
+import { Icons } from "../../constants/Icons";
+
+import { setupAPIClient } from "../../services/api";
+import { api } from "../../services/apiClient";
+import { canSSRAuth } from "../../utils/canSSRAuth";
 
 type Category = {
   id: string;

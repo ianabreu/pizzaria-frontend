@@ -1,5 +1,5 @@
-import { AuthProvider } from "@/contexts/AuthContext";
-import "@/styles/globals.css";
+import { AuthProvider } from "../contexts/AuthContext";
+import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Roboto } from "next/font/google";
 import { Toaster } from "react-hot-toast";

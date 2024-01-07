@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Link from "next/link";
 
-import { Icons } from "@/constants/Icons";
-import { NavLink, Dialog, Logo } from "@/components/ui";
+import { Icons } from "../../constants/Icons";
+import { NavLink, Dialog, Logo } from "../ui";
 
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 export function Header() {
   const [open, setOpen] = useState(false);

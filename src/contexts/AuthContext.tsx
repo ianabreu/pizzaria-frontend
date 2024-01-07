@@ -10,7 +10,7 @@ import { AxiosError } from "axios";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import toast from "react-hot-toast";
 
-import { api } from "@/services/apiClient";
+import { api } from "../services/apiClient";
 
 type AuthContextData = {
   user: UserProps | undefined;

@@ -3,11 +3,11 @@ import Head from "next/head";
 import toast from "react-hot-toast";
 import { AxiosError } from "axios";
 
-import { Container, Header } from "@/components/layout";
-import { Button, Input, Title } from "@/components/ui";
+import { Container, Header } from "../../components/layout";
+import { Button, Input, Title } from "../../components/ui";
 
-import { api } from "@/services/apiClient";
-import { canSSRAuth } from "@/utils/canSSRAuth";
+import { api } from "../../services/apiClient";
+import { canSSRAuth } from "../../utils/canSSRAuth";
 
 export default function CategoryPage() {
   const inputCategory = useRef<HTMLInputElement | null>(null);

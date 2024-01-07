@@ -1,6 +1,6 @@
 import Modal, { Styles } from "react-modal";
-import { OrderItemProps } from "@/pages/painel";
-import { Icons } from "@/constants/Icons";
+import { OrderItemProps } from "../../pages/painel";
+import { Icons } from "../../constants/Icons";
 import { Button, Title } from "../ui";
 
 interface OrderItemDetailsProps {

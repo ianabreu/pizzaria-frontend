@@ -3,10 +3,10 @@ import Head from "next/head";
 import Link from "next/link";
 import toast from "react-hot-toast";
 
-import { Input, Button, Logo } from "@/components/ui";
+import { Input, Button, Logo } from "../../components/ui";
 
-import { useAuth } from "@/contexts/AuthContext";
-import { canSSRGuest } from "@/utils/canSSRGuest";
+import { useAuth } from "../../contexts/AuthContext";
+import { canSSRGuest } from "../../utils/canSSRGuest";
 
 export default function Cadastro() {
   const { signUp } = useAuth();

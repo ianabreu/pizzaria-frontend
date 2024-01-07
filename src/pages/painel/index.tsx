@@ -1,13 +1,18 @@
+import { useState } from "react";
 import Head from "next/head";
 import Modal from "react-modal";
-import { Header, Container, OrderItem, OrderProps } from "@/components/layout";
-import { Icons } from "@/constants/Icons";
-import { Title } from "@/components/ui";
-import { canSSRAuth } from "@/utils/canSSRAuth";
-import { setupAPIClient } from "@/services/api";
-import { useState } from "react";
-import { api } from "@/services/apiClient";
-import { OrderItemDetails } from "@/components/layout/order-details";
+import {
+  Header,
+  Container,
+  OrderItem,
+  OrderProps,
+} from "../../components/layout";
+import { Icons } from "../../constants/Icons";
+import { Title } from "../../components/ui";
+import { canSSRAuth } from "../../utils/canSSRAuth";
+import { setupAPIClient } from "../../services/api";
+import { api } from "../../services/apiClient";
+import { OrderItemDetails } from "../../components/layout/order-details";
 
 interface PainelProps {
   orders: OrderProps[];

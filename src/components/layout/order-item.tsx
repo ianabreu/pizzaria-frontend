@@ -10,10 +10,7 @@ interface OrderItemProps {
   onClick: (id: string) => void;
 }
 
-export function OrderItem({
-  order: { id, name, table, draft, status },
-  onClick,
-}: OrderItemProps) {
+export function OrderItem({ order: { id, table }, onClick }: OrderItemProps) {
   return (
     <section className="bg-input h-auto rounded-md overflow-hidden">
       <button
