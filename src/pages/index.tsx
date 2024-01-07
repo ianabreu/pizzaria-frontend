@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import toast from "react-hot-toast";
 
-import { Input } from "../components/ui/input";
+import { Input } from "../components/ui/input-ui";
 import { UIButton } from "../components/ui/button-ui";
 import { Logo } from "../components/ui/logo";
 

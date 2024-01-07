@@ -7,7 +7,7 @@ import { AxiosError } from "axios";
 import { Container } from "../../components/layout/container";
 import { Header } from "../../components/layout/header";
 import { UIButton } from "../../components/ui/button-ui";
-import { Input, TextArea } from "../../components/ui/input";
+import { Input, TextArea } from "../../components/ui/input-ui";
 import { Title } from "../../components/ui/title";
 import { Icons } from "../../constants/Icons";
 
