@@ -2,7 +2,7 @@ import Modal, { Styles } from "react-modal";
 import { OrderItemProps } from "../../pages/painel";
 import { Icons } from "../../constants/Icons";
 import { Title } from "../ui/title";
-import { UIButton } from "@/components/ui/button";
+import { UIButton } from "@/components/ui/button-ui";
 
 interface OrderItemDetailsProps {
   isOpen: boolean;
@@ -38,13 +38,13 @@ export function OrderItemDetails({
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
       <div className="flex items-start gap-4 justify-between mb-4 select-none">
         <Title>Detalhes do pedido</Title>
-        <button
+        <UIButton
           type="button"
           onClick={onRequestClose}
           className="react-modal-close text-primary text-3xl"
         >
           {Icons["close"]}
-        </button>
+        </UIButton>
       </div>
       <div className="flex flex-col gap-2 mb-4">
         <div className="flex flex-col">

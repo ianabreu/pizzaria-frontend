@@ -1,6 +1,6 @@
 import Modal, { Styles } from "react-modal";
 import { Icons } from "../../constants/Icons";
-import { UIButton } from "./button";
+import { UIButton } from "./button-ui";
 
 const customStyles: Styles = {
   content: {

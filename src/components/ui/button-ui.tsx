@@ -1,12 +1,5 @@
-// import { ButtonHTMLAttributes, ReactNode } from "react";
 import { Icons } from "../../constants/Icons";
-
-// interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-//   loading?: boolean;
-//   children?: ReactNode;
-//   size?: "default" | "large";
-//   variant?: keyof typeof colorStyles;
-// }
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 const defaultStyles = `w-full p-[0.4rem] rounded-lg transition-all duration-200 font-bold`;
 const hoverStyles = `hover:filter hover:brightness-110 `;
@@ -16,21 +9,26 @@ const colorStyles = {
   cancel: `bg-transparent text-cancel `,
 };
 
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: ReactNode;
+  loading?: boolean;
+  size?: "default" | "large";
+  variant?: keyof typeof colorStyles;
+}
+
 export function UIButton({
   loading = false,
   size = "default",
   children,
   variant = "primary",
   ...rest
-}: any) {
+}: ButtonProps) {
   return (
     <button
       disabled={loading}
-      className={`${defaultStyles} ${
-        colorStyles[variant as keyof typeof colorStyles]
-      } ${hoverStyles} ${loading && "cursor-not-allowed"} ${
-        size === "large" ? "h-10 text-lg" : ""
-      } `}
+      className={`${defaultStyles} ${colorStyles[variant]} ${hoverStyles} ${
+        loading && "cursor-not-allowed"
+      } ${size === "large" ? "h-10 text-lg" : ""} `}
       {...rest}
     >
       <a>{loading ? <span>{Icons["loading"]}</span> : children}</a>

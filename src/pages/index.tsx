@@ -4,7 +4,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 
 import { Input } from "../components/ui/input";
-import { UIButton } from "../components/ui/button";
+import { UIButton } from "../components/ui/button-ui";
 import { Logo } from "../components/ui/logo";
 
 import { useAuth } from "../contexts/AuthContext";
