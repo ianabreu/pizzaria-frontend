@@ -3,7 +3,9 @@ import Head from "next/head";
 import Link from "next/link";
 import toast from "react-hot-toast";
 
-import { Input, Button, Logo } from "../../components/ui";
+import { Input } from "../../components/ui/input";
+import { Button } from "../../components/ui/button";
+import { Logo } from "../../components/ui/logo";
 
 import { useAuth } from "../../contexts/AuthContext";
 import { canSSRGuest } from "../../utils/canSSRGuest";

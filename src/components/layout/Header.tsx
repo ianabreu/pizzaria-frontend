@@ -2,7 +2,9 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { Icons } from "../../constants/Icons";
-import { NavLink, Dialog, Logo } from "../ui";
+import { Logo } from "../ui/logo";
+import { Dialog } from "../ui/alert-modal";
+import { NavLink } from "../ui/header-link";
 
 import { useAuth } from "../../contexts/AuthContext";
 

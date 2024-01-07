@@ -4,8 +4,11 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 import { AxiosError } from "axios";
 
-import { Container, Header } from "../../components/layout";
-import { Button, Input, TextArea, Title } from "../../components/ui";
+import { Container } from "../../components/layout/container";
+import { Header } from "../../components/layout/header";
+import { Button } from "../../components/ui/button";
+import { Input, TextArea } from "../../components/ui/input";
+import { Title } from "../../components/ui/title";
 import { Icons } from "../../constants/Icons";
 
 import { setupAPIClient } from "../../services/api";

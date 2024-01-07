@@ -3,8 +3,11 @@ import Head from "next/head";
 import toast from "react-hot-toast";
 import { AxiosError } from "axios";
 
-import { Container, Header } from "../../components/layout";
-import { Button, Input, Title } from "../../components/ui";
+import { Container } from "../../components/layout/container";
+import { Header } from "../../components/layout/header";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { Title } from "../../components/ui/title";
 
 import { api } from "../../services/apiClient";
 import { canSSRAuth } from "../../utils/canSSRAuth";

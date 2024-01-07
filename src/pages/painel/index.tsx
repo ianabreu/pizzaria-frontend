@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Head from "next/head";
 import Modal from "react-modal";
-import { Header, Container, OrderItem } from "../../components/layout";
-import { OrderProps } from "../../components/layout/order-item";
+import { Header } from "../../components/layout/header";
+import { Container } from "../../components/layout/container";
+import { OrderItem, OrderProps } from "../../components/layout/order-item";
 import { Icons } from "../../constants/Icons";
-import { Title } from "../../components/ui";
+import { Title } from "../../components/ui/title";
 import { canSSRAuth } from "../../utils/canSSRAuth";
 import { setupAPIClient } from "../../services/api";
 import { api } from "../../services/apiClient";
