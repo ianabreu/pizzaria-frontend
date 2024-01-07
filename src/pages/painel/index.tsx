@@ -2,7 +2,7 @@ import { useState } from "react";
 import Head from "next/head";
 import Modal from "react-modal";
 import { Header } from "../../components/layout/header";
-import { Container } from "../../components/layout/container";
+import { Container } from "../../components/layout/container-view";
 import { OrderItem, OrderProps } from "../../components/layout/order-item";
 import { Icons } from "../../constants/Icons";
 import { Title } from "../../components/ui/title";
