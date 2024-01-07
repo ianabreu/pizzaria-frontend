@@ -1,10 +1,10 @@
-export type OrderProps = {
+export interface OrderProps {
   id: string;
   table: number;
   status: boolean;
   draft: boolean;
   name: string | null;
-};
+}
 interface OrderItemProps {
   order: OrderProps;
   onClick: (id: string) => void;
