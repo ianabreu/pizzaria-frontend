@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 
-type ContainerProps = {
+interface ContainerProps {
   children: ReactNode;
-};
+}
 
 export function Container({ children }: ContainerProps) {
   return (
