@@ -1,13 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { Icons } from "../../constants/Icons";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  loading?: boolean;
-  children?: ReactNode;
-  size?: "default" | "large";
-  variant?: keyof typeof colorStyles;
-}
-
 const defaultStyles = `w-full p-[0.4rem] rounded-lg transition-all duration-200 font-bold`;
 const hoverStyles = `hover:filter hover:brightness-110 `;
 const colorStyles = {
@@ -15,6 +8,12 @@ const colorStyles = {
   secondary: `bg-secondary text-background`,
   cancel: `bg-transparent text-cancel `,
 };
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  loading?: boolean;
+  children?: ReactNode;
+  size?: "default" | "large";
+  variant?: keyof typeof colorStyles;
+}
 
 export function Button({
   loading = false,
