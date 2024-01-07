@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import Modal from "react-modal";
-import { Header } from "../../components/layout/header";
+import { Header } from "../../components/layout/header-view";
 import { Container } from "../../components/layout/container-view";
 import { OrderItem, OrderProps } from "../../components/layout/order-item";
 import { Icons } from "../../constants/Icons";

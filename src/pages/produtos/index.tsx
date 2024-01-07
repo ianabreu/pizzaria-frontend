@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { AxiosError } from "axios";
 
 import { Container } from "../../components/layout/container-view";
-import { Header } from "../../components/layout/header";
+import { Header } from "../../components/layout/header-view";
 import { UIButton } from "../../components/ui/button-ui";
 import { Input, TextArea } from "../../components/ui/input-ui";
 import { Title } from "../../components/ui/title";
