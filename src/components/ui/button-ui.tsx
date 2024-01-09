@@ -28,10 +28,16 @@ export function UIButton({
       disabled={loading}
       className={`${defaultStyles} ${colorStyles[variant]} ${hoverStyles} ${
         loading && "cursor-not-allowed"
-      } ${size === "large" ? "h-10 text-lg" : ""} `}
+      } ${
+        size === "large" ? "h-10 text-lg" : ""
+      } flex items-center justify-center`}
       {...rest}
     >
-      <a>{loading ? <span>{Icons["loading"]}</span> : children}</a>
+      {loading ? (
+        <span className="animate-spin m-auto">{Icons["loading"]}</span>
+      ) : (
+        children
+      )}
     </button>
   );
 }

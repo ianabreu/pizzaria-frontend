@@ -11,7 +11,7 @@ export const Icons = {
   logout: <FiLogOut />,
   alert: <FiAlertCircle />,
   refresh: <FiRefreshCcw />,
-  loading: <FaSpinner className="animate-spin m-auto" />,
+  loading: <FaSpinner />,
   upload: <FiUpload size={30} />,
   close: <FiX />,
 };
